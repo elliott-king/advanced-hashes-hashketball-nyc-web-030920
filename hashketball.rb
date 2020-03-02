@@ -140,7 +140,7 @@ def big_shoe_rebounds
   m = 0
   rebounds = 0
   all_players do |player|
-    if player[:shoe] > m 
+    if player[:shoe] > m
       m = player[:shoe]
       rebounds = player[:rebounds]
     end
