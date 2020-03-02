@@ -138,5 +138,13 @@ def big_shoe_rebounds
 end
 
 def most_points_scored
-  
+  m = 0
+  name = ""
+  all_players do |player|
+    if player[:points] > m
+      m = player[:points]
+      name = player[:player_name]
+    end
+  end
+  return name
 end
