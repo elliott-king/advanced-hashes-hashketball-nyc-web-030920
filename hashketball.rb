@@ -148,3 +148,19 @@ def most_points_scored
   end
   return name
 end
+
+def winning_team
+  gh = game_hash
+  total = 0
+  name = ""
+  game_hash.each do |key, h|
+    sum = 0
+    h[:players].each do |player|
+      sum += player[:points]
+    end
+    if sum > total
+      total = sum
+      name = h[:team_name]
+    end
+  end
+end
