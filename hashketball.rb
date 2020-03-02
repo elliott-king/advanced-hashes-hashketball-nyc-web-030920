@@ -169,8 +169,8 @@ end
 def player_with_longest_name
   max = ""
   all_players do |player|
-    if player[:name].size > max.size
-      max = player[:name]
+    if player[:player_name].size > max.size
+      max = player[:player_name]
     end
   end
   return max
