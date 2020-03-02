@@ -125,3 +125,19 @@ def player_stats player_name
     end
   end
 end
+
+def big_shoe_rebounds
+  gh = game_hash()
+  sym = [:home, :away]
+  m = 0
+  rebounds = 0
+  sym.each do |s|
+    game_hash[s][:players].each do |player|
+      if player[:shoe] > m
+        rebounds = player[:rebounds]
+        m = player[:shoe]
+      end
+    end
+  end
+  return rebounds
+end
