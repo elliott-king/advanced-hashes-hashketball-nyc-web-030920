@@ -182,8 +182,8 @@ def long_name_steals_a_ton?
   all_players do |player|
     if player[:player_name] == longest
       steals = player[:steals]
-    end 
-  end 
+    end
+  end
   all_players do |player|
     if player[:steals] > steals
       return false
