@@ -126,6 +126,14 @@ def player_stats player_name
   end
 end
 
+def all_players
+  gh = game_hash()
+  sym = [:home, :away]
+  sym.each do |s|
+    game_hash[s][:players].each {|player| yield player}
+  end
+end
+
 def big_shoe_rebounds
   gh = game_hash()
   sym = [:home, :away]
@@ -141,3 +149,5 @@ def big_shoe_rebounds
   end
   return rebounds
 end
+
+def most_points_scored
