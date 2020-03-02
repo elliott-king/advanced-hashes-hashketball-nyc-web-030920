@@ -126,7 +126,6 @@ end
 
 def big_shoe_rebounds
   gh = game_hash()
-  sym = [:home, :away]
   m = 0
   rebounds = 0
   all_players do |player|
@@ -138,4 +137,6 @@ def big_shoe_rebounds
   return rebounds
 end
 
-# def most_points_scored
+def most_points_scored
+  
+end
