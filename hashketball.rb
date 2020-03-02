@@ -55,24 +55,26 @@ def game_hash
     [7,	15,	5,	1,	5],
     [2,	10,	5,	0,	12]
   ]
-
-
   gh[:home][:players] = construct_players(home)
   gh[:away][:players] = construct_players(away)
   return gh
 end
 
-def lookup_value player_name, value
+def all_players
   gh = game_hash()
   sym = [:home, :away]
   sym.each do |s|
-    game_hash[s][:players].each do |player|
-      if player[:player_name] == player_name
-        return player[value]
-      end
+    game_hash[s][:players].each {|player| yield player}
+  end
+end
+
+def lookup_value player_name, value
+  gh = game_hash()
+  all_players do |player|
+    if player[:player_name] == player_name
+      return player[value]
     end
   end
-
 end
 
 def num_points_scored name
@@ -122,14 +124,6 @@ def player_stats player_name
         return player
       end
     end
-  end
-end
-
-def all_players
-  gh = game_hash()
-  sym = [:home, :away]
-  sym.each do |s|
-    game_hash[s][:players].each {|player| yield player}
   end
 end
 
