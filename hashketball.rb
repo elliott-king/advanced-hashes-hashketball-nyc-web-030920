@@ -175,3 +175,19 @@ def player_with_longest_name
   end
   return max
 end
+
+def long_name_steals_a_ton?
+  longest = player_with_longest_name()
+  steals = 0
+  all_players do |player|
+    if player[:player_name] == longest
+      steals = player[:steals]
+    end 
+  end 
+  all_players do |player|
+    if player[:steals] > steals
+      return false
+    end
+  end
+  return true
+end
