@@ -116,13 +116,10 @@ end
 
 def player_stats player_name
   gh = game_hash()
-  sym = [:home, :away]
-  sym.each do |s|
-    game_hash[s][:players].each do |player|
-      if player[:player_name] == player_name
-        player.delete(:player_name)
-        return player
-      end
+  all_players do |player|
+    if player[:player_name] == player_name
+      player.delete(:player_name)
+      return player
     end
   end
 end
