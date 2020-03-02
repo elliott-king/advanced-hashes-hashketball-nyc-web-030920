@@ -5,7 +5,6 @@ def construct_players(player_list)
   l = []
   player_list[0].each_with_index do |val, i|
   # player_list[0].each do |val|
-    print(val)
     player = {
       player_name: val,
       number: player_list[1][i],
