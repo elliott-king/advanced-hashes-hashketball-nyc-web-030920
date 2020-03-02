@@ -163,4 +163,5 @@ def winning_team
       name = h[:team_name]
     end
   end
+  return name
 end
