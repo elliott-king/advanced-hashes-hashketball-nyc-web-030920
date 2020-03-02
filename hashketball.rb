@@ -139,12 +139,10 @@ def big_shoe_rebounds
   sym = [:home, :away]
   m = 0
   rebounds = 0
-  sym.each do |s|
-    game_hash[s][:players].each do |player|
-      if player[:shoe] > m
-        rebounds = player[:rebounds]
-        m = player[:shoe]
-      end
+  all_players do |player|
+    if player[:shoe] > m 
+      m = player[:shoe]
+      rebounds = player[:rebounds]
     end
   end
   return rebounds
